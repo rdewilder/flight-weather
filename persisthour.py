@@ -154,29 +154,42 @@ class persisthour:
     def get_color_code(self, data):
         ceiling = int(data['ceiling'].split()[0])
         wind = int(data['wind'].split()[0])
+        gusts = int(data['gusts'].split()[0])
         liquid = float(data['liquid'].split()[0])
 
-        if ceiling > 20000:
-            color = '548235'
-        elif ceiling > 15000:
+        color = '548235'
+
+        if ceiling < 20000:
             color = 'A9D08E'
-        elif ceiling > 10000:
-            color = 'E2EFDA'
-        elif ceiling > 5000:
-            color = 'F4B084'
-        else:
-            color = 'FF0000'
-
-        if liquid > 0.2:
-            color = 'FF0000'
-        if liquid > 0:
-            color = 'E2EFDA'
-
         if wind > 15:
             color = 'A9D08E'
 
+        if ceiling < 15000:
+            color = 'E2EFDA'
+        if liquid > 0:
+            color = 'E2EFDA'
+
+        if ceiling < 10000:
+            color = 'F4B084'
+        if liquid > 0.1:
+            color = 'F4B084'
+        if gusts > 20:
+            color = 'F4B084'
+
+        if ceiling < 5000:
+            color = 'FF0000'
         if wind > 20:
             color = 'FF0000'
+        if liquid > 0.2:
+            color = 'FF0000'
+        if gusts > 30:
+            color = 'FF0000'
+
+
+
+
+
+
 
 
         return color

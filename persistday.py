@@ -1,5 +1,6 @@
 import time
 import boto3
+import string
 from BeautifulSoup import BeautifulSoup as bs
 from constants import *
 
@@ -139,21 +140,68 @@ class persistday:
         x = data['image'].split('/').pop().split('.')
         x = int(x[0])
 
-        if x == 1:
-            color = '548235'
-        elif x == 2:
+        rain = float(data['rain'].split()[0])
+        wind = int(data['wind'].split()[2])
+        gusts = int(data['gusts'].split()[0])
+        snow = float(data['snow'].split()[0])
+        ice = float(data['ice'].split()[0])
+        tstorms = int(string.replace(data['tstorms'], '%', ''))
+
+        color = '548235'
+
+        if x == 2:
             color = 'A9D08E'
-        elif x == 3:
-             color = 'E2EFDA'
-        elif x == 4:
+        if wind > 15:
+            color = 'A9D08E'
+
+        if x == 3:
+            color = 'E2EFDA'
+        if rain > 0:
+            color = 'E2EFDA'
+        if snow > 0:
+            color = 'E2EFDA'
+        if ice > 0:
+            color = 'E2EFDA'
+
+        if x == 4:
             color = 'FCE4D6'
-        elif x == 6:
+        if x == 6:
              color = 'FCE4D6'
-        elif x == 7:
+        if gusts > 20:
+            color = 'FCE4D6'
+        if rain > 0.1:
+            color = 'FCE4D6'
+        if snow > 0.1:
+            color = 'FCE4D6'
+        if ice > 0.1:
+            color = 'FCE4D6'
+        if tstorms > 0:
+            color = 'FCE4D6'
+
+        if x == 7:
              color = 'F4B084'
-        elif x > 7:
+        if gusts > 25:
+            color = 'F4B084'
+        if rain > 0.2:
+            color = 'F4B084'
+        if snow > 0.2:
+            color = 'F4B084'
+        if ice > 0.2:
+            color = 'F4B084'
+        if tstorms > 5:
+            color = 'F4B084'
+
+        if x > 7:
             color = 'FF0000'
-        else:
-            print x
+        if gusts > 30:
+            color = 'FF0000'
+        if rain > 0.3:
+            color = 'FF0000'
+        if snow > 0.3:
+            color = 'FF0000'
+        if ice > 0.3:
+            color = 'FF0000'
+        if tstorms > 3:
+            color = 'FF0000'
 
         return color
