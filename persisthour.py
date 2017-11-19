@@ -176,7 +176,6 @@ class persisthour:
             color = 'A9D08E'
 
         if wind > 20:
-            print wind
             color = 'FF0000'
 
 

@@ -35,11 +35,14 @@ class persistday:
         <b>%s</b><p/><br/>
         Wind: %s<br/>
         Gusts: %s<br/>
-        Precipitation: %s<br/>
-        T-storms: %s
+        Rain: %s<br/>
+        T-storms: %s<br/>
+        Snow: %s<br/>
+        Ice: %s<br/>
         """
         text = text % (data['image'], data['description'], data['wind'],
-                        data['gusts'], data['precipitation'], data['tstorms'])
+                       data['gusts'], data['rain'], data['tstorms'], data['snow'],
+                       data['ice'])
         return self.modal_template % (data['id'], label, text)
 
     def save(self, data, isProd = False):

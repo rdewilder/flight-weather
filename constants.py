@@ -30,15 +30,15 @@ aw_params = dict([('KADS', ('addison-airport-tx', '8499_poi', '75001')), \
 
 fc_colors = dict([('perfect', '#548235'), ('good', 4127), ('fair', 4098),('maginal', 4098),('bad', 4098)])
 
-desc_xpath = 'string(//*[@id="main-wrapper"]/div/p[1]/text())'
-wind_xpath = 'string(//*[@id="main-wrapper"]/div/ul[1]/li/p[3]/b/text())'
-gusts_xpath = 'string(//*[@id="main-wrapper"]/div/ul[1]/li/p[4]/b/text())'
-tstorm_xpath = 'string(//*[@id="main-wrapper"]/div/ul[1]/li/p[5]/b/text())'
-prec_xpath = 'string(//*[@id="main-wrapper"]/div/ul[1]/li/p[8]/b/text())'
-hprec_xpath = 'string(//*[@id="main-wrapper"]/div/ul[1]/li/p[12]/b/text())'
-alt_xpath = 'string(//*[@id="main-wrapper"]/div/table[1]/tr/td[1]/img/@alt)'
-img_xpath = 'string(//*[@id="main-wrapper"]/div/table[1]/tr/td[1]/img/@src)'
+date_xpath = 'string (//*[@id="two-day"]/div[@class="hider"]/ul/h3/text())'
 
-xpaths = dict([('desc', desc_xpath), ('wind', wind_xpath), ('gusts', gusts_xpath), \
-                 ('tstorm', tstorm_xpath), ('prec', prec_xpath), ('hprec', hprec_xpath)])
+desc_xpath = 'string(//*[@id="two-day"]/div[@class="hider"]/ul/li[1]/dl/dd[3]/p/text())'
+wind_xpath = 'string(//*[@id="details"]/div[1]/div/div[1]/p/span/text()[2])'
+gusts_xpath = 'string(//*[@id="details"]/div[1]/div/div[1]/p/span/text()[4])'
+rain_xpath = 'string(//*[@id="details"]/div[1]/div/div[2]/p[1]/text())'
+tstorm_xpath = 'string(//*[@id="details"]/div[1]/div/div[2]/p[2]/text())'
+snow_xpath = 'string(//*[@id="details"]/div[1]/div/div[2]/p[3]/text())'
+ice_xpath = 'string(//*[@id="details"]/div[1]/div/div[2]/p[4]/text())'
+
+end_date_str = "25 Nov 2017"
 

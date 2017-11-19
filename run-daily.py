@@ -1,6 +1,5 @@
-import time, pickle, ConfigParser, shutil, os.path
+import pickle, ConfigParser, shutil, os.path
 from datetime import timedelta, datetime
-from constants import *
 from accuweatherday import *
 from persistday import *
 
@@ -85,12 +84,12 @@ if env == 'prod':
     if os.path.exists(dir):
         shutil.rmtree(dir)
 
-end_date = datetime.strptime("28 Feb 2018", "%d %b %Y").date()
+end_date = datetime.strptime(end_date_str, "%d %b %Y").date()
 dates = generate_dates(end_date)
 data = get_data(dates, waypoints)
 
 r = persistday()
 r.save(data, isProd)
 
-sendEmail("Flight Weather Hourly Update Success", "The hourly update is complete")
+sendEmail("Flight Weather Daily Update Success", "The Daily update is complete")
 print "Complete"

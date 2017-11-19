@@ -82,7 +82,7 @@ if env == 'prod':
     if os.path.exists(cache_dir):
         shutil.rmtree(cache_dir)
 
-end_date = datetime.strptime("28 Feb 2018", "%d %b %Y").date()
+end_date = datetime.strptime(end_date_str, "%d %b %Y").date()
 
 data = get_data(waypoints)
 r = persisthour()
